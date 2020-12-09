@@ -1,42 +1,51 @@
 import 'package:flutter/material.dart';
 
-void main() => runApp(MyApp());
+void main() {
+  runApp(SampleApp());
+}
 
-class MyApp extends StatelessWidget {
+//快捷键stl+回车键快速生成模板代码
+class SampleApp extends StatelessWidget {
+  //this widget is the root of application
   @override
   Widget build(BuildContext context) {
-    //MaterialApp是Material库中提供的Flutter APP框架，通过它可以设置APP的名称、
-    //主题、语言、首页及路由列表等
-    return new MaterialApp(
-      //APP名称
-      title: "flutter demo",
-      //主题颜色
-      theme: new ThemeData(primarySwatch: Colors.blue),
-      //APP首页路由
-      home: new HomePage(),
+    return MaterialApp(
+      title: 'Sample App',
+      home: SampleAppPage(),
     );
   }
 }
 
-//APP的首页，StatefulWidget表示有状态的组件，这些状态在Widget生命周期中是可变的
-class HomePage extends StatefulWidget {
+//快捷键stf+回车键快速生成模板代码
+class SampleAppPage extends StatefulWidget {
   @override
-  State<StatefulWidget> createState() {
-    return new HomePageState();
-  }
+  _SampleAppPageState createState() => _SampleAppPageState();
 }
 
-class HomePageState extends State<HomePage> {
+class _SampleAppPageState extends State<SampleAppPage> {
+  //default placeholder text
+  String textToShow = 'I like Flutter';
+  bool isDefault = true;
+
+  void _updateText() {
+    setState(() {
+      textToShow = isDefault ? 'I like Flutter' : 'Flutter is Awesome!';
+      isDefault = !isDefault;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
-    return new Scaffold(
+    return Scaffold(
       appBar: AppBar(
-        title: Text("首页"),
+        title: Text('Sample App'),
       ),
-      body: new Center(
-        child: Column(
-          children: [Text("column-1"), Text("Column-2")],
-        ),
+      body: Center(
+        child: Text(textToShow),
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: _updateText,
+        child: Icon(Icons.update),
       ),
     );
   }
