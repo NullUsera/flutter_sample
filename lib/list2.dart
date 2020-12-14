@@ -9,6 +9,7 @@ class ListApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       home: Home(),
       theme: ThemeData(primarySwatch: Colors.yellow),
     );
