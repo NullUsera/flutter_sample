@@ -33,8 +33,7 @@ class UserAccountHeaderDrawerWidget extends StatelessWidget {
                       fit: BoxFit.cover,
                       //添加背景图片滤镜
                       colorFilter: ColorFilter.mode(
-                          Colors.blue.withOpacity(0.5),
-                          BlendMode.hardLight))),
+                          Colors.blue.withOpacity(0.5), BlendMode.hardLight))),
               accountName: Text(
                 'NullUserA',
                 style: TextStyle(
@@ -73,6 +72,20 @@ class UserAccountHeaderDrawerWidget extends StatelessWidget {
                 onTap: () => _onNavigationPop(context)),
           ],
         )),
+        bottomNavigationBar: BottomNavigationBar(
+          //当item超过4个就要设置type为BottomNavigationBarType.fixed
+          type: BottomNavigationBarType.fixed,
+          //选中的item颜色
+          fixedColor: Colors.black,
+          items: [
+            BottomNavigationBarItem(
+                label: 'Explore', icon: Icon(Icons.explore)),
+            BottomNavigationBarItem(label: 'List', icon: Icon(Icons.list)),
+            BottomNavigationBarItem(
+                label: 'History', icon: Icon(Icons.history)),
+            BottomNavigationBarItem(label: 'My', icon: Icon(Icons.person))
+          ],
+        ),
       ),
     );
   }
