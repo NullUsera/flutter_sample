@@ -26,6 +26,15 @@ class UserAccountHeaderDrawerWidget extends StatelessWidget {
             child: ListView(
           children: [
             UserAccountsDrawerHeader(
+              decoration: BoxDecoration(
+                  image: DecorationImage(
+                      image: NetworkImage(
+                          'https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=3942751454,1089199356&fm=26&gp=0.jpg'),
+                      fit: BoxFit.cover,
+                      //添加背景图片滤镜
+                      colorFilter: ColorFilter.mode(
+                          Colors.blue.withOpacity(0.5),
+                          BlendMode.hardLight))),
               accountName: Text(
                 'NullUserA',
                 style: TextStyle(
