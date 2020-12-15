@@ -1,7 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_project/drawer/BottomNavigationBarWidget.dart';
 
 //显示用户信息的侧边栏
 class UserAccountHeaderDrawerWidget extends StatelessWidget {
+  int _currentIndex = 0;
+
+  void _setCurrentIndex(int index) {
+    _currentIndex = index;
+  }
+
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
@@ -72,20 +79,7 @@ class UserAccountHeaderDrawerWidget extends StatelessWidget {
                 onTap: () => _onNavigationPop(context)),
           ],
         )),
-        bottomNavigationBar: BottomNavigationBar(
-          //当item超过4个就要设置type为BottomNavigationBarType.fixed
-          type: BottomNavigationBarType.fixed,
-          //选中的item颜色
-          fixedColor: Colors.black,
-          items: [
-            BottomNavigationBarItem(
-                label: 'Explore', icon: Icon(Icons.explore)),
-            BottomNavigationBarItem(label: 'List', icon: Icon(Icons.list)),
-            BottomNavigationBarItem(
-                label: 'History', icon: Icon(Icons.history)),
-            BottomNavigationBarItem(label: 'My', icon: Icon(Icons.person))
-          ],
-        ),
+        bottomNavigationBar: BottomNavigationItemWidget(),
       ),
     );
   }
