@@ -1,14 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_project/basic/basic.dart';
 import 'package:flutter_project/drawer/BottomNavigationBarWidget.dart';
 
 //显示用户信息的侧边栏
 class UserAccountHeaderDrawerWidget extends StatelessWidget {
-  int _currentIndex = 0;
-
-  void _setCurrentIndex(int index) {
-    _currentIndex = index;
-  }
-
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
@@ -23,11 +18,7 @@ class UserAccountHeaderDrawerWidget extends StatelessWidget {
           ),
         ),
         body: TabBarView(
-          children: <Widget>[
-            Icon(Icons.select_all, color: Colors.blue, size: 130.0),
-            Text('已支付'),
-            Text('待支付')
-          ],
+          children: <Widget>[BasicWidget(), Text('已支付'), Text('待支付')],
         ),
         drawer: Drawer(
             child: ListView(
